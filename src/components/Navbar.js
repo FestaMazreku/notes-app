@@ -1,7 +1,7 @@
 import React from "react";
-import {Container, Navbar} from "react-bootstrap";
-import {faX} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { Container, Navbar } from "react-bootstrap";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NavbarNotes = () => {
     return (
