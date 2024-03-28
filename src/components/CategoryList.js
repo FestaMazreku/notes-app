@@ -1,23 +1,115 @@
-import React from 'react';
-import { ListGroup } from 'react-bootstrap';
+import Col from "react-bootstrap/Col";
+import ListGroup from "react-bootstrap/ListGroup";
+import Row from "react-bootstrap/Row";
+import Tab from "react-bootstrap/Tab";
+import Form from "react-bootstrap/Form";
+import Stack from "react-bootstrap/Stack";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import { faFolder } from "@fortawesome/free-solid-svg-icons";
+import Card from "react-bootstrap/Card";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../stylesheets/CategoryList.css";
 
 function CategoryList() {
-  const alertClicked = () => {
-    alert('You clicked the third ListGroupItem');
-  };
-
   return (
-    <ListGroup defaultActiveKey="#link1">
-      <ListGroup.Item action href="#link1">
-        Link 1
-      </ListGroup.Item>
-      <ListGroup.Item action href="#link2" disabled>
-        Link 2
-      </ListGroup.Item>
-      <ListGroup.Item action onClick={alertClicked}>
-        This one is a button
-      </ListGroup.Item>
-    </ListGroup>
+    <>
+      <Card className="card">
+        <Stack direction="horizontal" gap={2}>
+          <Form.Control className="me-auto" placeholder="Add a title..." />
+          <button className="button-check">
+            {" "}
+            <FontAwesomeIcon icon={faCheck} />{" "}
+          </button>
+          <button className="button-X">
+            <FontAwesomeIcon icon={faX} />
+          </button>
+        </Stack>
+        <br />
+
+        <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
+          <Row>
+            <Col sm={12}>
+              <ListGroup>
+                <ListGroup.Item action href="#link1" className="category">
+                  {" "}
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp; Category (1)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link2" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp; Category (5)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link3" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp; Category (12)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link4" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp; Category (0)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link5" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp; Category (16)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link6" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp; Category (3)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link7" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp; Category (2)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link8" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp;Category (2)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link9" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp;Category (0)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link10" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp; Category (0)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link11" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp;Category (0)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link12" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp; Category (0)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link13" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp;Category (0)
+                </ListGroup.Item>
+                <br />
+                <ListGroup.Item action href="#link14" className="category">
+                  <FontAwesomeIcon icon={faFolder} className="icon" />
+                  &nbsp; Category (0)
+                </ListGroup.Item>
+              </ListGroup>
+            </Col>
+            <Col sm={8}>
+              <Tab.Content></Tab.Content>
+            </Col>
+          </Row>
+        </Tab.Container>
+      </Card>
+    </>
   );
 }
 

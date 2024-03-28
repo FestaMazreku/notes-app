@@ -1,0 +1,36 @@
+.button {
+    width: 120px;
+    height: 32px;
+    top: 70px;
+    left: 540px;
+    gap: 2rem;
+    border-radius: 5px 0px 0px 0px;
+    opacity: 0px;
+}
+
+.note {
+    border: 0;
+    color: gray;
+}
+
+.title {
+    border: 0;
+    color: gray;
+}
+
+.text {
+    color: lightgray;
+}
+
+.button1 {
+    width: 170px;
+    background: #1264A3;
+    border: 0;
+}
+
+.button2 {
+    width: 170px;
+    background: #71CF48;
+    display: table-column;
+    border: 0;
+}
