@@ -35,8 +35,20 @@
     border-radius: 8px;
     text-align: left;
     color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .icon {
     height: 30px;
+}
+
+.caret {
+    margin-left: 195px;
+}
+
+@media (max-width: 768px) {
+    .caret {
+      margin-left: auto;
+      margin-left: 130px;
+    }
 }

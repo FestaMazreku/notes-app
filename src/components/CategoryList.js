@@ -7,8 +7,9 @@ import Stack from "react-bootstrap/Stack";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { faFolder } from "@fortawesome/free-solid-svg-icons";
-import Card from "react-bootstrap/Card";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Card from "react-bootstrap/Card";
 import "../stylesheets/CategoryList.css";
 
 function CategoryList() {
@@ -35,71 +36,113 @@ function CategoryList() {
                   {" "}
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp; Category (1)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link2" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp; Category (5)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link3" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
-                  &nbsp; Category (12)
+                  &nbsp; Category (2)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link4" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp; Category (0)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link5" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
-                  &nbsp; Category (16)
+                  &nbsp; Category (6)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link6" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp; Category (3)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link7" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp; Category (2)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link8" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp;Category (2)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link9" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp;Category (0)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link10" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp; Category (0)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link11" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp;Category (0)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link12" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp; Category (0)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link13" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp;Category (0)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
                 <br />
                 <ListGroup.Item action href="#link14" className="category">
                   <FontAwesomeIcon icon={faFolder} className="icon" />
                   &nbsp; Category (0)
+                  <span className="caret-container">
+                    <FontAwesomeIcon icon={faCaretDown} className="caret" />
+                  </span>
                 </ListGroup.Item>
               </ListGroup>
             </Col>
