@@ -3,7 +3,12 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
-import { faCheck, faX, faFolder, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheck,
+  faX,
+  faFolder,
+  faCaretDown,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "react-bootstrap/Card";
 import "../stylesheets/CategoryList.css";
@@ -12,36 +17,36 @@ import { useState } from "react";
 function CategoryList() {
   const categoryArray = [
     {
-        "id": 1,
-        "name": "Category"
+      id: 1,
+      name: "Category",
     },
     {
-        "id": 2,
-        "name": "Category"
+      id: 2,
+      name: "Category",
     },
     {
-        "id": 3,
-        "name": "Category"
+      id: 3,
+      name: "Category",
     },
     {
-      "id": 4,
-      "name": "Category"
+      id: 4,
+      name: "Category",
     },
     {
-      "id": 5,
-      "name": "Category"
+      id: 5,
+      name: "Category",
     },
     {
-      "id": 6,
-      "name": "Category"
+      id: 6,
+      name: "Category",
     },
     {
-      "id": 7,
-      "name": "Category"
-    }
-];
+      id: 7,
+      name: "Category",
+    },
+  ];
 
-const [category] = useState(categoryArray);
+  const [category] = useState(categoryArray);
 
   return (
     <>
@@ -59,17 +64,30 @@ const [category] = useState(categoryArray);
         <Row>
           <Col lg={12} md={12} sm={12} xs={12}>
             <ListGroup>
-              {category && category.map((item) => {
-                return (    
-                  <ListGroup.Item action href={item.id} className="category" key={item.id}>
-                    <FontAwesomeIcon icon={faFolder} className="icon" />
-                    &nbsp; {item.name + " " + "(" + item.id + ")"}
-                    <span className="caret-container">
-                      <FontAwesomeIcon icon={faCaretDown} className="float-end" />
-                    </span>
-                  </ListGroup.Item>
-                );
-              })}
+              {category &&
+                category.map((item) => {
+                  return (
+                    <ListGroup.Item
+                      action
+                      href={`${item.id}`}
+                      className="category"
+                      key={item.id}
+                    >
+                      <FontAwesomeIcon icon={faFolder} className="icon" />
+                      &nbsp;
+                      {
+                        // eslint-disable-next-line
+                        item.name + " " + "(" + item.id + ")"
+                      }
+                      <span className="caret-container">
+                        <FontAwesomeIcon
+                          icon={faCaretDown}
+                          className="float-end"
+                        />
+                      </span>
+                    </ListGroup.Item>
+                  );
+                })}
             </ListGroup>
           </Col>
         </Row>

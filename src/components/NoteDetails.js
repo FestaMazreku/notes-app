@@ -1,19 +1,37 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import { Button, Card, ListGroup } from "react-bootstrap";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useParams } from "react-router-dom";
-import useFetch from "./UseFetch";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import "../stylesheets/NoteDetails.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NoteDetails = () => {
-  const { id } = useParams();
-  const {
-    data: notes,
-    error,
-    isPending,
-  } = useFetch("http://localhost:3000/notes/" + id);
+  const [note, setNote] = useState([]);
+
+  const api = axios.create({
+    baseURL: process.env.REACT_APP_API_HOST_URL,
+    timeout: 5000,
+  });
+
+  const fetchNotes = async () => {
+    try {
+      const response = await api.get(
+        `https://jsonplaceholder.typicode.com/posts`,
+      );
+      if (response.status === 200) {
+        setNote(response.data);
+      } else {
+        alert("Failed to fetch notes!");
+      }
+    } catch (error) {
+      console.log("Failed to fetch notes!" + error);
+    }
+  };
+
+  useEffect(() => {
+    fetchNotes();
+  }, []);
 
   return (
     <>
@@ -32,19 +50,25 @@ const NoteDetails = () => {
           </div>
         </div>
 
-        <br />
-
         <div className="note-details">
-          {isPending && <div> Loading... </div>}
-          {error && <div> {error} </div>}
-          {notes && (
-            <article>
-              <h2> {notes.title} </h2>
-              <div> {notes.body} </div>
-            </article>
-          )}
+          <ListGroup>
+            {note &&
+              note.map((item) => {
+                return (
+                  <ListGroup.Item
+                    action
+                    href={item.id}
+                    key={item.id}
+                  >
+                    &nbsp;
+                    <span className="fw-bold">{item.title}</span>
+                    <p>{item.body}</p>
+                  </ListGroup.Item>
+                );
+              })}
+            }
+          </ListGroup>
         </div>
-
         <br />
         <div className="button-save-container">
           <Button className="button-save">

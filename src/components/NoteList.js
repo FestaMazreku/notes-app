@@ -5,8 +5,13 @@ import Card from "react-bootstrap/Card";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../stylesheets/NoteList.css";
+import { useParams } from "react-router-dom";
+import NoteDetails from "./NoteDetails";
 
 const NoteList = () => {
+  const { id } = useParams();
+  console.log(id);
+
   return (
     <>
       <Card className="card">
@@ -23,17 +28,21 @@ const NoteList = () => {
             <Button className="button"></Button>
           </div>
         </div>
-        <Form className="text">
-          <Form.Group>
-            <br />
-            <Form.Control placeholder="Add a title" className="title" />
-            <hr />
-            <Form.Control
-              placeholder="Write your note here..."
-              className="note"
-            />
-          </Form.Group>
-        </Form>
+        {id ? (
+          <NoteDetails />
+        ) : (
+          <Form className="text">
+            <Form.Group>
+              <br />
+              <Form.Control placeholder="Add a title" className="title" />
+              <hr />
+              <Form.Control
+                placeholder="Write your note here..."
+                className="note"
+              />
+            </Form.Group>
+          </Form>
+        )}
         <br />
         <div className="button-save-container float-end">
           <Button className="button-save">
