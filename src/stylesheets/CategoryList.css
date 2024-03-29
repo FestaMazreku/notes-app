@@ -41,14 +41,3 @@
 .icon {
     height: 30px;
 }
-
-.caret {
-    margin-left: 195px;
-}
-
-@media (max-width: 768px) {
-    .caret {
-      margin-left: auto;
-      margin-left: 130px;
-    }
-}
