@@ -1,12 +1,20 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../stylesheets/NoteList.css";
+import { useParams } from "react-router-dom";
+import useFetch from "./UseFetch";
+import "../stylesheets/NoteDetails.css";
 
-const NoteList = () => {
+const NoteDetails = () => {
+  const { id } = useParams();
+  const {
+    data: notes,
+    error,
+    isPending,
+  } = useFetch("http://localhost:3000/notes/" + id);
+
   return (
     <>
       <Card className="card">
@@ -23,19 +31,22 @@ const NoteList = () => {
             <Button className="button"></Button>
           </div>
         </div>
-        <Form className="text">
-          <Form.Group>
-            <br />
-            <Form.Control placeholder="Add a title" className="title" />
-            <hr />
-            <Form.Control
-              placeholder="Write your note here..."
-              className="note"
-            />
-          </Form.Group>
-        </Form>
+
         <br />
-        <div className="button-save-container float-end">
+
+        <div className="note-details">
+          {isPending && <div> Loading... </div>}
+          {error && <div> {error} </div>}
+          {notes && (
+            <article>
+              <h2> {notes.title} </h2>
+              <div> {notes.body} </div>
+            </article>
+          )}
+        </div>
+
+        <br />
+        <div className="button-save-container">
           <Button className="button-save">
             Save Changes &nbsp;{" "}
             <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
@@ -46,4 +57,4 @@ const NoteList = () => {
   );
 };
 
-export default NoteList;
+export default NoteDetails;
