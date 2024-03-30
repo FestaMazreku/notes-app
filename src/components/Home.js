@@ -3,7 +3,7 @@ import NavbarNotes from "./Navbar";
 import CategoryList from "./CategoryList";
 import NoteList from "./NoteList";
 import { Row, Col } from "react-bootstrap";
-import "../stylesheets/Home.css";
+// import CreateNote from "./CreateNote";
 
 function Home() {
   const categoryListStyle = {
@@ -21,6 +21,9 @@ function Home() {
         <Col lg={8} md={8} sm={6} xs={6}>
           <NoteList />
         </Col>
+        {/* <Col lg={6} md={6} sm={4} xs={4}>
+          <CreateNote />
+        </Col> */}
       </Row>
     </>
   );

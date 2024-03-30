@@ -4,9 +4,9 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../stylesheets/NoteList.css";
 import { useParams } from "react-router-dom";
 import NoteDetails from "./NoteDetails";
+import "../stylesheets/NoteList.css";
 
 const NoteList = () => {
   const { id } = useParams();

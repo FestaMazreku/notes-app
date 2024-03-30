@@ -3,7 +3,6 @@ import { Button, Card, ListGroup } from "react-bootstrap";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import "../stylesheets/NoteDetails.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const NoteDetails = () => {
@@ -17,7 +16,7 @@ const NoteDetails = () => {
   const fetchNotes = async () => {
     try {
       const response = await api.get(
-        `https://jsonplaceholder.typicode.com/posts`,
+        `https://jsonplaceholder.typicode.com/posts`
       );
       if (response.status === 200) {
         setNote(response.data);
@@ -31,14 +30,14 @@ const NoteDetails = () => {
 
   useEffect(() => {
     fetchNotes();
-  }, []);
+  });
 
   return (
     <>
       <Card className="card">
         <div className="button-container">
           <div className="left-buttons">
-            <Button className="button button1"></Button>
+            <Button className="button button1">Create new notes</Button>
             <Button className="button button2"></Button>
             <Button className="button button3"></Button>
           </div>
@@ -55,18 +54,13 @@ const NoteDetails = () => {
             {note &&
               note.map((item) => {
                 return (
-                  <ListGroup.Item
-                    action
-                    href={item.id}
-                    key={item.id}
-                  >
+                  <ListGroup.Item action href={item.id} key={item.id}>
                     &nbsp;
                     <span className="fw-bold">{item.title}</span>
                     <p>{item.body}</p>
                   </ListGroup.Item>
                 );
               })}
-            }
           </ListGroup>
         </div>
         <br />
