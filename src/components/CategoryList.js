@@ -56,6 +56,46 @@ function CategoryList() {
       id: 10,
       name: "Category",
     },
+    {
+      id: 11,
+      name: "Category",
+    },
+    {
+      id: 12,
+      name: "Category",
+    },
+    {
+      id: 13,
+      name: "Category",
+    },
+    {
+      id: 14,
+      name: "Category",
+    },
+    {
+      id: 15,
+      name: "Category",
+    },
+    {
+      id: 16,
+      name: "Category",
+    },
+    {
+      id: 17,
+      name: "Category",
+    },
+    {
+      id: 18,
+      name: "Category",
+    },
+    {
+      id: 19,
+      name: "Category",
+    },
+    {
+      id: 20,
+      name: "Category",
+    },
   ];
 
   const [category] = useState(categoryArray);

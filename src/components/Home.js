@@ -1,9 +1,9 @@
 import React from "react";
 import CategoryList from "./CategoryList";
-import { Row, Col } from "react-bootstrap";
 import CreateNote from "./CreateNote";
 import NoteList from "./NoteList";
 import { useParams } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
 
 function Home() {
   const { id } = useParams();

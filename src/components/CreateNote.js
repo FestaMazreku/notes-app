@@ -23,19 +23,19 @@ const CreateNote = () => {
             <Button className="button"></Button>
           </div>
         </div>
-   
-          <Form className="text">
-            <Form.Group>
-              <br />
-              <Form.Control placeholder="Add a title" className="title" />
-              <hr />
-              <Form.Control
-                placeholder="Write your note here..."
-                className="body"
-              />
-            </Form.Group>
-          </Form>
-   
+
+        <Form className="text">
+          <Form.Group>
+            <br />
+            <Form.Control placeholder="Add a title" className="title" />
+            <hr />
+            <Form.Control
+              placeholder="Write your note here..."
+              className="body"
+            />
+          </Form.Group>
+        </Form>
+
         <br />
         <div className="button-save-container float-end">
           <Button className="button-save">

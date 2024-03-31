@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../stylesheets/CreateNote.css";
 
 const NoteDetails = () => {
   return (
@@ -25,8 +26,7 @@ const NoteDetails = () => {
         <br />
         <div className="button-delete-container float-start">
           <Button className="button-delete">
-            Delete Note &nbsp;{" "}
-            <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+            Delete Note &nbsp; <FontAwesomeIcon icon={faTrash} />
           </Button>
         </div>
 

@@ -55,6 +55,13 @@
     border: 0;
     width: 150px;
 }
+
+.button-delete {
+    background: red;
+    justify-content: flex-start;
+    border: 0;
+    width: 150px;
+}
   
 .body {
     border: 0;
