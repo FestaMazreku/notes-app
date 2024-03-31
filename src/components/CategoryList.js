@@ -85,7 +85,7 @@ function CategoryList() {
                   return (
                     <ListGroup.Item
                       action
-                      href={`${item.id}`}
+                      href={`/notes/card/${item.id}`}
                       className="category"
                       key={item.id}
                     >
