@@ -15,7 +15,12 @@ const pagesData: routerType[] = [
     title: "Home",
   },
   {
-    path: "/notes/card/:id",
+    path: "/:id",
+    element: <Home />,
+    title: "HomeCategory",
+  },
+  {
+    path: "/category-notes/:id",
     element: <NoteList />,
     title: "NoteList",
   },

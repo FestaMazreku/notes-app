@@ -49,10 +49,6 @@ function CategoryList() {
       name: "Category",
     },
     {
-      id: 8,
-      name: "Category",
-    },
-    {
       id: 9,
       name: "Category",
     },
@@ -85,7 +81,7 @@ function CategoryList() {
                   return (
                     <ListGroup.Item
                       action
-                      href={`/notes/card/${item.id}`}
+                      href={`/category?id=${item.id}`}
                       className="category"
                       key={item.id}
                     >
