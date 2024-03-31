@@ -1,7 +1,7 @@
 import React from "react";
 import NavbarNotes from "./Navbar";
 import CategoryList from "./CategoryList";
-import NoteList from "./NoteList";
+import WriteNote from "./WriteNote";
 import { Row, Col } from "react-bootstrap";
 // import CreateNote from "./CreateNote";
 
@@ -19,7 +19,7 @@ function Home() {
           <CategoryList />
         </Col>
         <Col lg={8} md={8} sm={6} xs={6}>
-          <NoteList />
+          <WriteNote />
         </Col>
         {/* <Col lg={6} md={6} sm={4} xs={4}>
           <CreateNote />

@@ -2,10 +2,10 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../stylesheets/NoteDetails.css";
 import { useParams } from "react-router-dom";
-import useFetch from "./UseFetch";
+import { useFetch } from "react";
 
 const CreateNote = () => {
   const { id } = useParams();
@@ -13,23 +13,15 @@ const CreateNote = () => {
     data: notes,
     error,
     isPending,
-  } = useFetch("http://localhost:8000/notes/" + id);
+  } = useFetch("http://localhost:3000 / notes / " + id);
 
   return (
     <>
       <Card className="card">
-        <div className="button-container">
-          <div className="left-buttons">
-            <Button className="button button1"></Button>
-            <Button className="button button2"></Button>
-            <Button className="button button3"></Button>
-          </div>
-
-          <div className="right-buttons">
-            <Button className="button"></Button>
-            <Button className="button"></Button>
-            <Button className="button"></Button>
-          </div>
+        <div>
+          <Button variant="success">
+            Create Button <FontAwesomeIcon icon={faPlus} />{" "}
+          </Button>
         </div>
 
         <br />
@@ -45,7 +37,6 @@ const CreateNote = () => {
           )}
         </div>
 
-        <br />
         <div className="button-save-container">
           <Button className="button-save">
             Save Changes &nbsp;{" "}

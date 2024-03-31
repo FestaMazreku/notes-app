@@ -38,7 +38,7 @@ const NoteList = () => {
               <hr />
               <Form.Control
                 placeholder="Write your note here..."
-                className="note"
+                className="body"
               />
             </Form.Group>
           </Form>

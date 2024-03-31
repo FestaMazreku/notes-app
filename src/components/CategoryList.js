@@ -11,8 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "react-bootstrap/Card";
-import "../stylesheets/CategoryList.css";
 import { useState } from "react";
+import "../stylesheets/CategoryList.css";
 
 function CategoryList() {
   const categoryArray = [
@@ -42,6 +42,22 @@ function CategoryList() {
     },
     {
       id: 7,
+      name: "Category",
+    },
+    {
+      id: 8,
+      name: "Category",
+    },
+    {
+      id: 8,
+      name: "Category",
+    },
+    {
+      id: 9,
+      name: "Category",
+    },
+    {
+      id: 10,
       name: "Category",
     },
   ];
