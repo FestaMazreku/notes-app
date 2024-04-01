@@ -1,12 +1,31 @@
-import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
+import { useState } from "react";
 import "../stylesheets/CreateNote.css";
 
 const CreateNote = () => {
+  const [note, setNote] = useState({
+    title: "",
+    body: "",
+  });
+
+  const handleInput = (event) => {
+    setNote({ ...note, [event.target.name]: event.target.value });
+  };
+
+  function handleSubmit(event) {
+    console.log("Form submitted!");
+    event.preventDefault();
+    axios
+      .post(`https://jsonplaceholder.typicode.com/posts`, { note })
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  }
+
   return (
     <>
       <Card className="card">
@@ -24,25 +43,39 @@ const CreateNote = () => {
           </div>
         </div>
 
-        <Form className="text">
-          <Form.Group>
-            <br />
-            <Form.Control placeholder="Add a title" className="title" />
-            <hr />
-            <Form.Control
-              placeholder="Write your note here..."
-              className="body"
-            />
-          </Form.Group>
-        </Form>
+        <Form onSubmit={handleSubmit}>
+          <br />
+          <Form.Control
+            type="text"
+            onChange={handleInput}
+            placeholder="Add a title"
+            className="title"
+            name="title"
+          />
+          <hr />
+          <Form.Control
+            type="text"
+            onChange={handleInput}
+            placeholder="Write your note here..."
+            className="body"
+            name="body"
+          />
 
+          <div className="button-save-container float-end">
+            <Button className="button-save">
+              Save Changes &nbsp;{" "}
+              <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+            </Button>
+          </div>
+        </Form>
         <br />
-        <div className="button-save-container float-end">
+
+        {/* <div className="button-save-container float-end">
           <Button className="button-save">
             Save Changes &nbsp;{" "}
             <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
           </Button>
-        </div>
+        </div> */}
       </Card>
     </>
   );
