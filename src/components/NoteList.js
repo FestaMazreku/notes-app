@@ -80,20 +80,24 @@ const NoteList = () => {
           />
         </Col>
       </Row>
-      <div className="note-details">
-        <ListGroup>
-          {note &&
-            note.map((item) => {
-              return (
-                <ListGroup.Item action key={item.id} onClick={() => {}}>
-                  &nbsp;
-                  <span className="fw-bold">Title: {item.title}</span>
-                  <p>{item.body}</p>
-                </ListGroup.Item>
-              );
-            })}
-        </ListGroup>
-      </div>
+      <Row>
+        <Col lg={12} md={12} sm={12} xs={12}>
+          <div className="note-details">
+            <ListGroup>
+              {note &&
+                note.map((item) => {
+                  return (
+                    <ListGroup.Item action key={item.id} onClick={() => {}}>
+                      &nbsp;
+                      <span className="fw-bold">Title: {item.title}</span>
+                      <p>{item.body}</p>
+                    </ListGroup.Item>
+                  );
+                })}
+            </ListGroup>
+          </div>
+        </Col>
+      </Row>
     </Card>
   );
 };
