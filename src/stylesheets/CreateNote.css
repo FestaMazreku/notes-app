@@ -3,27 +3,27 @@
     justify-content: space-between;
     margin-bottom: 10px;
 }
-  
+
 .left-buttons,
 .right-buttons {
     display: flex;
 }
-  
+
 .button {
     height: 32px;
     border-radius: 5px;
     opacity: 1;
     border: 0;
 }
-  
+
 .left-buttons .button {
     width: 120px;
     margin-right: 10px;
 }
-  
+
 .right-buttons .button {
     width: 30px;
-    margin-right: 10px; 
+    margin-right: 10px;
     background: #1264A3;
     display: flex;
 }
@@ -31,27 +31,17 @@
 .button1 {
     background: #1264A3;
 }
-  
+
 .button2 {
     background: #1264A3;
 }
-  
+
 .button3 {
     background: #71CF48;
 }
 
-.button-save-container {
-    margin-top: auto; 
-    background: #71CF48;
-    border: 0;
-    width: 150px;
-    border-radius: 5px;
-    justify-content: flex-end;
-}
-  
 .button-save {
     background: #71CF48;
-    justify-content: flex-end;
     border: 0;
     width: 150px;
 }
@@ -62,21 +52,21 @@
     border: 0;
     width: 150px;
 }
-  
+
 .body {
     border: 0;
     color: gray;
 }
-  
+
 .title {
     border: 0;
     color: gray;
 }
-  
+
 .text {
     color: lightgray;
  }
-  
+
 @media (max-width: 768px) {
     .button-container {
         flex-direction: column;

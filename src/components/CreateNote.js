@@ -1,6 +1,4 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
+import { Button, Form, Card, Alert, Row, Col } from "react-bootstrap";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
@@ -12,6 +10,8 @@ const CreateNote = () => {
     title: "",
     body: "",
   });
+  const [successMessage, setSuccessMessage] = useState("");
+  const [variant, setVariant] = useState("");
 
   const handleInput = (event) => {
     setNote({ ...note, [event.target.name]: event.target.value });
@@ -22,8 +22,21 @@ const CreateNote = () => {
     event.preventDefault();
     axios
       .post(`https://jsonplaceholder.typicode.com/posts`, { note })
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
+      .then((response) => {
+        setVariant("success");
+        setSuccessMessage("Note created successfully!");
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 3000);
+      })
+      .catch((err) => {
+        console.log(err);
+        setVariant("danger");
+        setSuccessMessage("Note creation failed!");
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 3000);
+      });
   }
 
   return (
@@ -35,47 +48,44 @@ const CreateNote = () => {
             <Button className="button button2"></Button>
             <Button className="button button3"></Button>
           </div>
-
           <div className="right-buttons">
             <Button className="button"></Button>
             <Button className="button"></Button>
             <Button className="button"></Button>
           </div>
         </div>
-
-        <Form onSubmit={handleSubmit}>
-          <br />
-          <Form.Control
-            type="text"
-            onChange={handleInput}
-            placeholder="Add a title"
-            className="title"
-            name="title"
-          />
-          <hr />
-          <Form.Control
-            type="text"
-            onChange={handleInput}
-            placeholder="Write your note here..."
-            className="body"
-            name="body"
-          />
-
-          <div className="button-save-container float-end">
-            <Button className="button-save">
-              Save Changes &nbsp;{" "}
-              <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
-            </Button>
-          </div>
-        </Form>
-        <br />
-
-        {/* <div className="button-save-container float-end">
-          <Button className="button-save">
-            Save Changes &nbsp;{" "}
-            <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
-          </Button>
-        </div> */}
+        {successMessage && (
+            <Alert className="mt-4" key={variant} variant={variant}>
+              {successMessage}
+            </Alert>
+        )}
+        <Row>
+          <Col lg={12} md={12} sm={12} xs={12}>
+            <Form onSubmit={handleSubmit}>
+              <br />
+              <Form.Control
+                type="text"
+                onChange={handleInput}
+                placeholder="Add a title"
+                className="title"
+                name="title"
+              />
+              <hr />
+              <Form.Control
+                as="textarea"
+                rows={6}
+                onChange={handleInput}
+                placeholder="Write your note here..."
+                className="body"
+                name="body"
+              />
+              <Button className="button-save float-end mt-4" type="submit">
+                Save Changes &nbsp;{" "}
+                <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+              </Button>
+            </Form>
+          </Col>
+        </Row>
       </Card>
     </>
   );
