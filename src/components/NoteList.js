@@ -17,7 +17,7 @@ const NoteList = () => {
   const fetchNotes = async () => {
     try {
       const response = await api.get(
-        `https://jsonplaceholder.typicode.com/posts`
+        `https://jsonplaceholder.typicode.com/posts`,
       );
       if (response.status === 200) {
         setNote(response.data.slice(0, 10));
@@ -33,11 +33,15 @@ const NoteList = () => {
     fetchNotes();
   }, []);
 
+  const handleOnClear = (string) => {
+    !string && fetchNotes();
+  };
+
   const handleOnSearch = (string) => {
     const filteredNotes = note.filter((item) =>
-      item.title.toLowerCase().includes(string.toLowerCase())
+      item.title.toLowerCase().includes(string.toLowerCase()),
     );
-    setNote(filteredNotes);
+    string ? setNote(filteredNotes) : fetchNotes();
   };
 
   const formatResult = (item) => {
@@ -69,8 +73,9 @@ const NoteList = () => {
             onSearch={handleOnSearch}
             autoFocus
             formatResult={formatResult}
+            onClear={handleOnClear}
             fuseOptions={{ useExtendedSearch: true, threshold: 0.3 }}
-            placeholder="Search..."
+            placeholder="Search for a title..."
             styling={{ zIndex: 2, borderRadius: "4px" }}
           />
         </Col>
@@ -82,7 +87,7 @@ const NoteList = () => {
               return (
                 <ListGroup.Item action key={item.id} onClick={() => {}}>
                   &nbsp;
-                  <span className="fw-bold">{item.title}</span>
+                  <span className="fw-bold">Title: {item.title}</span>
                   <p>{item.body}</p>
                 </ListGroup.Item>
               );
