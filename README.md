@@ -1,7 +1,10 @@
 # notes-app
-Notes app with React for Flex Business Solutions
+Notes app with ReactJS for Flex Business Solutions
 
 To start the project, type "npm start".
+
+Here is the link of the task/test in Vercel app:
+https://notes-app-sable-tau.vercel.app/
 
 How to run your app with all the necessary details
 Relating to the task please add answers to the following questions;
