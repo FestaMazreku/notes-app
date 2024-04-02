@@ -48,9 +48,15 @@
 
 .button-delete {
     background: red;
-    justify-content: flex-start;
     border: 0;
     width: 150px;
+}
+
+.button-note {
+    background: #71CF48;
+    border: 0;
+    width: 200px;
+    padding-left: 30px;
 }
 
 .body {

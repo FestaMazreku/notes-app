@@ -5,6 +5,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import axios from "axios";
+import "../stylesheets/CreateNote.css";
 
 const NoteList = () => {
   const [note, setNote] = useState([]);
@@ -17,7 +18,7 @@ const NoteList = () => {
   const fetchNotes = async () => {
     try {
       const response = await api.get(
-        `https://jsonplaceholder.typicode.com/posts`,
+        `https://jsonplaceholder.typicode.com/posts`
       );
       if (response.status === 200) {
         setNote(response.data.slice(0, 10));
@@ -39,7 +40,7 @@ const NoteList = () => {
 
   const handleOnSearch = (string) => {
     const filteredNotes = note.filter((item) =>
-      item.title.toLowerCase().includes(string.toLowerCase()),
+      item.title.toLowerCase().includes(string.toLowerCase())
     );
     string ? setNote(filteredNotes) : fetchNotes();
   };
@@ -57,17 +58,17 @@ const NoteList = () => {
   return (
     <Card className="card">
       <Row>
-        <Col lg={2}>
+        <Col lg={3}>
           <Button
-            variant="success"
+            className="button-note"
             onClick={() => {
               window.location.assign("/");
             }}
           >
-            Create Note <FontAwesomeIcon icon={faPlus} />{" "}
+            Create Note <FontAwesomeIcon icon={faPlus} className="mt-1 float-end"/>{" "}
           </Button>
         </Col>
-        <Col lg={10}>
+        <Col lg={5}>
           <ReactSearchAutocomplete
             items={note}
             onSearch={handleOnSearch}

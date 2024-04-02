@@ -8,6 +8,7 @@ import {
   faX,
   faFolder,
   faCaretDown,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "react-bootstrap/Card";
@@ -98,19 +99,57 @@ function CategoryList() {
     },
   ];
 
-  const [category] = useState(categoryArray);
+  const [category, setCategory] = useState(categoryArray);
+  const [showForm, setShowForm] = useState(false);
+  const [newCategoryTitle, setNewCategoryTitle] = useState("");
+
+  const handleAddCategory = () => {
+    setShowForm(true);
+  };
+
+  const handleSaveCategory = () => {
+    const newCategory = {
+      id: category.length + 1,
+      name: newCategoryTitle,
+    };
+    setCategory([...category, newCategory]);
+    setNewCategoryTitle("");
+    setShowForm(false);
+  };
+
+  const handleChange = (e) => {
+    setNewCategoryTitle(e.target.value);
+  };
 
   return (
     <>
       <Card className="card">
         <Stack direction="horizontal" gap={2}>
-          <Form.Control className="me-auto" placeholder="Add a title..." />
-          <button className="button-check">
-            <FontAwesomeIcon icon={faCheck} />
-          </button>
-          <button className="button-X">
-            <FontAwesomeIcon icon={faX} />
-          </button>
+          {!showForm && (
+            <button className="button-category" onClick={handleAddCategory}>
+              Create Category{" "}
+              <FontAwesomeIcon icon={faPlus} className="mt-1 float-end" />{" "}
+            </button>
+          )}
+          {showForm && (
+            <>
+              <Form.Control
+                className="me-auto"
+                placeholder="Add a title..."
+                value={newCategoryTitle}
+                onChange={handleChange}
+              />
+              <button className="button-check" onClick={handleSaveCategory}>
+                <FontAwesomeIcon icon={faCheck} />
+              </button>
+              <button
+                className="button-cancel"
+                onClick={() => setShowForm(false)}
+              >
+                <FontAwesomeIcon icon={faX} />
+              </button>
+            </>
+          )}
         </Stack>
         <br />
         <Row>

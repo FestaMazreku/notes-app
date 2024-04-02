@@ -7,7 +7,6 @@ import { Row, Col } from "react-bootstrap";
 
 function Home() {
   const { id } = useParams();
-
   return (
     <Row>
       <Col lg={4} md={4} sm={6} xs={6}>

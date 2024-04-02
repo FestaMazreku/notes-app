@@ -1,8 +1,8 @@
 import { Button, Form, Card, Alert, Row, Col } from "react-bootstrap";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
 import { useState } from "react";
+import axios from "axios";
 import "../stylesheets/CreateNote.css";
 
 const CreateNote = () => {
@@ -55,9 +55,9 @@ const CreateNote = () => {
           </div>
         </div>
         {successMessage && (
-            <Alert className="mt-4" key={variant} variant={variant}>
-              {successMessage}
-            </Alert>
+          <Alert className="mt-4" key={variant} variant={variant}>
+            {successMessage}
+          </Alert>
         )}
         <Row>
           <Col lg={12} md={12} sm={12} xs={12}>
@@ -80,8 +80,11 @@ const CreateNote = () => {
                 name="body"
               />
               <Button className="button-save float-end mt-4" type="submit">
-                Save Changes &nbsp;{" "}
-                <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+                Save Changes &nbsp; <FontAwesomeIcon icon={faCheck} />
+              </Button>
+
+              <Button className="button-delete float-start mt-4">
+                Delete Note &nbsp; <FontAwesomeIcon icon={faTrash} />
               </Button>
             </Form>
           </Col>
